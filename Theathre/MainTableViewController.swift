@@ -37,12 +37,20 @@ class MainTableViewController: UITableViewController {
         return theathreNames.count
     }
 
-        
+    
+    // MARK: - TABLE METHOD HEIGHT FOR ROW AT INDEX PATH
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
+    }
+    
+    
     // MARK: - TABLE METHOD CELL FOR ROW AT INDEX PATH
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = theathreNames[indexPath.row]
         cell.imageView?.image = UIImage(named: images[indexPath.row])
+        cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
+        cell.imageView?.clipsToBounds = true
 
         return cell
     }
