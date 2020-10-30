@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EF80D34254C907800133465 /* NewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF80D33254C907800133465 /* NewTableViewController.swift */; };
 		E62877A82546908E008029D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62877A72546908E008029D0 /* AppDelegate.swift */; };
 		E62877AA2546908E008029D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62877A92546908E008029D0 /* SceneDelegate.swift */; };
 		E62877AF2546908E008029D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E62877AD2546908E008029D0 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EF80D33254C907800133465 /* NewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewController.swift; sourceTree = "<group>"; };
 		E62877A42546908E008029D0 /* Theathre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theathre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62877A72546908E008029D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E62877A92546908E008029D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				E62877A72546908E008029D0 /* AppDelegate.swift */,
 				E62877A92546908E008029D0 /* SceneDelegate.swift */,
 				E62877AD2546908E008029D0 /* Main.storyboard */,
+				3EF80D33254C907800133465 /* NewTableViewController.swift */,
 				E6CF02B62548705E0033E44A /* MainTableViewCell.swift */,
 				E62877BF25469EAF008029D0 /* MainTableViewController.swift */,
 				E62877B02546908F008029D0 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF80D34254C907800133465 /* NewTableViewController.swift in Sources */,
 				E62877A82546908E008029D0 /* AppDelegate.swift in Sources */,
 				E62877C025469EAF008029D0 /* MainTableViewController.swift in Sources */,
 				E6CF02B72548705E0033E44A /* MainTableViewCell.swift in Sources */,

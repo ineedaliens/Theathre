@@ -68,6 +68,11 @@ class MainTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // MARK: - PREPARE FOR SEGUE
+    @IBAction func backToMain(segue: UIStoryboardSegue) {
+        
+    }
+    
     
     // MARK: - PREPARE FOR SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
