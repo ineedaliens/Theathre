@@ -21,32 +21,30 @@ class NewTableViewController: UITableViewController {
         tableView.separatorColor = .black
     }
 
-    // MARK: - TABLE METHOD NUMBER OF SECTION
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    
-    // MARK: - TABLE METHOD NUMBER OF ROWS IN SECTION
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 4
-    }
-
-    // MARK: - TABLE METHOD CELL FOR ROW AT
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-//
-//        // Configure the cell...
-//
-//        return cell
-//    }
 
     
     // MARK: - TABLE METHOD DID SELECT ROW AT INDEX PATH
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            
+        } else {
+            view.endEditing(true)
+        }
+//        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+
+// MARK: - EXTENSION NEW TABLE VIEW CONTROLLER
+extension NewTableViewController: UITextFieldDelegate {
+ 
+    
+    // MARK: - METHOD HIDE KEYBOARD WHEN DONE BUTTON PRESSED
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
     
 }
