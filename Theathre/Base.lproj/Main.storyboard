@@ -127,6 +127,7 @@
                                                 <constraint firstItem="bqT-5d-Hb2" firstAttribute="leading" secondItem="t3n-Io-gAY" secondAttribute="leading" id="v3E-Jg-rLa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="CHb-Ja-gdx">
                                         <rect key="frame" x="0.0" y="278" width="414" height="75"/>
@@ -162,6 +163,7 @@
                                                 <constraint firstItem="mOY-t3-aYd" firstAttribute="top" secondItem="05P-Wo-UgA" secondAttribute="top" constant="8" id="aDa-dz-sFq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="AUZ-MY-vQJ">
                                         <rect key="frame" x="0.0" y="353" width="414" height="75"/>
@@ -197,6 +199,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="vSj-by-hee" secondAttribute="trailing" constant="16" id="qbi-nQ-Ki4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="DBQ-HF-Vwu">
                                         <rect key="frame" x="0.0" y="428" width="414" height="75"/>
@@ -232,6 +235,7 @@
                                                 <constraint firstItem="9r4-0A-qEY" firstAttribute="leading" secondItem="e3o-VF-pXK" secondAttribute="leading" constant="16" id="XiX-vA-fk3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
