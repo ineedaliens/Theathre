@@ -72,6 +72,7 @@
                                         <constraint firstItem="GBH-sg-90t" firstAttribute="leading" secondItem="KsV-AX-CtY" secondAttribute="trailing" constant="10" id="o21-k9-gmr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 <connections>
                                     <outlet property="images" destination="KsV-AX-CtY" id="qhZ-d6-rSI"/>
                                     <outlet property="locationLabel" destination="EnZ-Fk-Q3I" id="9GO-Zr-ufL"/>
@@ -248,13 +249,21 @@
                     <navigationItem key="navigationItem" title="NEW THEATHRE" id="9Xo-DG-h3n">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gpj-mJ-rmf">
                             <connections>
-                                <segue destination="cYn-lt-lN6" kind="unwind" unwindAction="backToMainWithSegue:" id="1mW-xS-c2C"/>
+                                <action selector="cancelToMainScreen:" destination="LsD-SJ-D7r" id="38T-5S-qh9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6HB-Ch-0Gr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6HB-Ch-0Gr">
+                            <connections>
+                                <segue destination="cYn-lt-lN6" kind="unwind" unwindAction="unwindSegueWithSegue:" id="fLh-NO-XLh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imagesView" destination="bqT-5d-Hb2" id="KXx-xm-Kg2"/>
+                        <outlet property="saveButton" destination="6HB-Ch-0Gr" id="MdO-X9-d11"/>
+                        <outletCollection property="textFields" destination="wUy-CM-ssp" collectionClass="NSMutableArray" id="5wB-tb-RXq"/>
+                        <outletCollection property="textFields" destination="GHh-mo-C9M" collectionClass="NSMutableArray" id="i3N-2g-dru"/>
+                        <outletCollection property="textFields" destination="8yh-O0-iWK" collectionClass="NSMutableArray" id="g0W-mk-3Gf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNL-jm-41j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

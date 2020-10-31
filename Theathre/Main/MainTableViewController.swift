@@ -16,11 +16,11 @@ class MainTableViewController: UITableViewController {
 //    let type = ["","","","",""]
 //    let location = ["","","","",""]
 //    let images = ["","","","",""]
-    let theathre = [Theathre(name: "Екатеринбургский государственный академический театр оперы и балета", type: "Театр оперы и балета", location: "просп. Ленина, 46А, Екатеринбург, Свердловская обл.", images: "Екатеринбургский государственный академический театр оперы и балета"),
-    Theathre(name: "Екатеринбургский музыкально-драматический театр", type: "Музыкально-драматический театр", location: "просп. Ленина, 48 А, Екатеринбург, Свердловская обл.", images: "Екатеринбургский музыкально-драматический театр Сцена"),
-    Theathre(name: "Коляда-Театр", type: "Частный театр", location: "просп. Ленина, 97, Екатеринбург, Свердловская обл.", images: "Коляда-Театр"),
-    Theathre(name: "Волхонка", type: "Драматический театр", location: "ул. Малышева, 21/1, Екатеринбург, Свердловская обл.", images: "Волхонка"),
-    Theathre(name: "Камерный Театр Объединенного Музея Писателей Урала", type: "Камерный театр", location: "ул. Пролетарская, 18, Екатеринбург, Свердловская обл.", images: "Камерный Театр Объединенного Музея Писателей Урала")]
+    var theathre = [Theathre(name: "Екатеринбургский государственный академический театр оперы и балета", type: "Театр оперы и балета", location: "просп. Ленина, 46А, Екатеринбург, Свердловская обл.", theathreImages: "Екатеринбургский государственный академический театр оперы и балета"),
+    Theathre(name: "Екатеринбургский музыкально-драматический театр", type: "Музыкально-драматический театр", location: "просп. Ленина, 48 А, Екатеринбург, Свердловская обл.", theathreImages: "Екатеринбургский музыкально-драматический театр Сцена"),
+    Theathre(name: "Коляда-Театр", type: "Частный театр", location: "просп. Ленина, 97, Екатеринбург, Свердловская обл.", theathreImages: "Коляда-Театр"),
+    Theathre(name: "Волхонка", type: "Драматический театр", location: "ул. Малышева, 21/1, Екатеринбург, Свердловская обл.", theathreImages: "Волхонка"),
+    Theathre(name: "Камерный Театр Объединенного Музея Писателей Урала", type: "Камерный театр", location: "ул. Пролетарская, 18, Екатеринбург, Свердловская обл.", theathreImages: "Камерный Театр Объединенного Музея Писателей Урала")]
     
     
     // MARK: - METHOD VIEW DID LOAD
@@ -54,10 +54,19 @@ class MainTableViewController: UITableViewController {
     // MARK: - TABLE METHOD CELL FOR ROW AT INDEX PATH
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
-        cell.nameLabel.text = theathre[indexPath.row].name
-        cell.typeLabel.text = theathre[indexPath.row].type
-        cell.locationLabel.text = theathre[indexPath.row].location
-        cell.images.image = UIImage(named: theathre[indexPath.row].images)
+        
+        let theathres = theathre[indexPath.row]
+        
+        cell.nameLabel.text = theathres.name
+        cell.typeLabel.text = theathres.type
+        cell.locationLabel.text = theathres.location
+        
+        if theathres.image == nil {
+            cell.images.image = UIImage(named: theathres.theathreImages!)
+        } else {
+            cell.images.image = theathres.image
+        }
+        
         cell.images.layer.cornerRadius = 29.5
         cell.images.clipsToBounds = true
 
@@ -74,8 +83,11 @@ class MainTableViewController: UITableViewController {
     }
     
     // MARK: - UNWIND SEGUE
-    @IBAction func backToMain(segue: UIStoryboardSegue) {
-        
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard let theathreVC = segue.source as? NewTableViewController else { return }
+        theathreVC.saveNewTheathre()
+        theathre.append(theathreVC.theathre!)
+        tableView.reloadData()
     }
     
     
