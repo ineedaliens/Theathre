@@ -14,6 +14,7 @@
 		E62877B12546908F008029D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E62877B02546908F008029D0 /* Assets.xcassets */; };
 		E62877B42546908F008029D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E62877B22546908F008029D0 /* LaunchScreen.storyboard */; };
 		E62877C025469EAF008029D0 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62877BF25469EAF008029D0 /* MainTableViewController.swift */; };
+		E679EDB5254D5CEA0083BB85 /* Theathre.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679EDB4254D5CEA0083BB85 /* Theathre.swift */; };
 		E6CF02B72548705E0033E44A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF02B62548705E0033E44A /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		E62877B32546908F008029D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E62877B52546908F008029D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E62877BF25469EAF008029D0 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		E679EDB4254D5CEA0083BB85 /* Theathre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theathre.swift; sourceTree = "<group>"; };
 		E6CF02B62548705E0033E44A /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,14 +65,39 @@
 				E62877A72546908E008029D0 /* AppDelegate.swift */,
 				E62877A92546908E008029D0 /* SceneDelegate.swift */,
 				E62877AD2546908E008029D0 /* Main.storyboard */,
-				3EF80D33254C907800133465 /* NewTableViewController.swift */,
-				E6CF02B62548705E0033E44A /* MainTableViewCell.swift */,
-				E62877BF25469EAF008029D0 /* MainTableViewController.swift */,
+				E679EDB7254D5D170083BB85 /* Model */,
+				E679EDB2254D5CAB0083BB85 /* Add New Theathre */,
+				E679EDB0254D5C950083BB85 /* Main */,
 				E62877B02546908F008029D0 /* Assets.xcassets */,
 				E62877B22546908F008029D0 /* LaunchScreen.storyboard */,
 				E62877B52546908F008029D0 /* Info.plist */,
 			);
 			path = Theathre;
+			sourceTree = "<group>";
+		};
+		E679EDB0254D5C950083BB85 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E6CF02B62548705E0033E44A /* MainTableViewCell.swift */,
+				E62877BF25469EAF008029D0 /* MainTableViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E679EDB2254D5CAB0083BB85 /* Add New Theathre */ = {
+			isa = PBXGroup;
+			children = (
+				3EF80D33254C907800133465 /* NewTableViewController.swift */,
+			);
+			path = "Add New Theathre";
+			sourceTree = "<group>";
+		};
+		E679EDB7254D5D170083BB85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E679EDB4254D5CEA0083BB85 /* Theathre.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +172,7 @@
 			files = (
 				3EF80D34254C907800133465 /* NewTableViewController.swift in Sources */,
 				E62877A82546908E008029D0 /* AppDelegate.swift in Sources */,
+				E679EDB5254D5CEA0083BB85 /* Theathre.swift in Sources */,
 				E62877C025469EAF008029D0 /* MainTableViewController.swift in Sources */,
 				E6CF02B72548705E0033E44A /* MainTableViewCell.swift in Sources */,
 				E62877AA2546908E008029D0 /* SceneDelegate.swift in Sources */,
