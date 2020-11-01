@@ -71,13 +71,13 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     
     // MARK: - METHOD SAVE NEW THEATHRE
     func saveNewTheathre() {
-
+        
         var image: UIImage!
         
         if imagesIsChange{
             image = imagesView.image
         } else {
-          image = #imageLiteral(resourceName: "default image ")
+            image = #imageLiteral(resourceName: "default image ")
         }
         
         let imageData = image.pngData()
