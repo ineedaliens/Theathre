@@ -17,13 +17,17 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     
     
     // MARK: - VAR,LET AND ARRAY
-    var theathre: Theathre?
+    var theathre = Theathre()
     var imagesIsChange = false
     
     
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.theathre.saveTheathres()
+        }
+        
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .black
@@ -79,7 +83,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         } else {
           image = #imageLiteral(resourceName: "default image ")
         }
-        theathre = Theathre(name: textFields[0].text!, type: textFields[2].text, location: textFields[1].text, image: image, theathreImages: nil)
+//        theathre = Theathre(name: textFields[0].text!, type: textFields[2].text, location: textFields[1].text, image: image, theathreImages: nil)
     }
     
     // MARK: - METHOD CHOOSE IMAGE PICKER
