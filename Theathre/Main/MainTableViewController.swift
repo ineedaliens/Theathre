@@ -8,8 +8,11 @@
 import UIKit
 import RealmSwift
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    // MARK: - OUTLETS
+    @IBOutlet weak var tableView: UITableView!
     
     
     // MARK: - VAR,LET AND ARRAY
@@ -28,34 +31,34 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         theathres = realm.objects(Theathre.self)
-        
+        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         tableView.estimatedRowHeight = 85
     }
     
     
     // MARK: - TABLE METHOD NIMBER OF SECTIONS
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
     
     // MARK: - TABLE METHOD NUMBER OF ROWS IN SECTION
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return theathres.isEmpty ? 0 : theathres.count
     }
     
     
     // MARK: - TABLE METHOD HEIGHT FOR ROW AT INDEX PATH
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
     
     
     // MARK: - TABLE METHOD CELL FOR ROW AT INDEX PATH
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
         
         let theathres = self.theathres[indexPath.row]
@@ -75,20 +78,20 @@ class MainTableViewController: UITableViewController {
     
     
     // MARK: - TABLE METHOD DID SELECT ROW AT INDEX PATH
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
     // MARK: - TABLE METHOD TRAILING SWIPE ACTIONS CONFIGURATION FOR ROW AT
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let theathre = theathres[indexPath.row]
         let delete = UIContextualAction(style: .normal, title: "Удалить", handler: {_,_,_  in
             StorageManager.deleteObject(theathre)
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
         let swipe = UISwipeActionsConfiguration(actions: [delete])
-
+        
         delete.backgroundColor = .red
         
         return swipe
@@ -107,10 +110,10 @@ class MainTableViewController: UITableViewController {
     // MARK: - PREPARE FOR SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
             let theathre = theathres[indexPath.row]
             let dvc = segue.destination as? NewTableViewController
             dvc?.currentTheathre = theathre
+        }
     }
-}
 }
