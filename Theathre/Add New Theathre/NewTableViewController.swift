@@ -17,7 +17,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     
     
     // MARK: - VAR,LET AND ARRAY
-    
+    var currentTheathre: Theathre?
     var imagesIsChange = false
     
     
@@ -28,6 +28,8 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .black
         saveButton.isEnabled = false
+        
+        setupEditScreen()
         
         textFields[0].addTarget(self, action: #selector(textFieldsChange), for: .editingChanged)
     }
@@ -70,7 +72,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     
     
     // MARK: - METHOD SAVE NEW THEATHRE
-    func saveNewTheathre() {
+    func saveTheathre() {
         
         var image: UIImage!
         
@@ -82,7 +84,17 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         
         let imageData = image.pngData()
         let newTheathres = Theathre(name: textFields[0].text!, location: textFields[1].text, type: textFields[2].text, imageData: imageData)
-        StorageManager.saveObject(newTheathres)
+        if currentTheathre != nil {
+            try! realm.write {
+                currentTheathre?.name = newTheathres.name
+                currentTheathre?.location = newTheathres.location
+                currentTheathre?.type = newTheathres.type
+                currentTheathre?.imageData = newTheathres.imageData
+            }
+            } else {
+                StorageManager.saveObject(newTheathres)
+        }
+    
     }
     
     // MARK: - METHOD CHOOSE IMAGE PICKER
@@ -94,6 +106,33 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
             imagePicker.sourceType = sourse
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    
+    // MARK: - METHOD SETUP EDIT SCREEN
+    private func setupEditScreen() {
+        if currentTheathre != nil {
+            setupNavigationBar()
+            imagesIsChange = true
+            guard let data = currentTheathre?.imageData, let image = UIImage(data: data) else { return }
+            imagesView.image = image
+            imagesView.contentMode = .scaleAspectFill
+            textFields[0].text = currentTheathre?.name
+            textFields[1].text = currentTheathre?.location
+            textFields[2].text = currentTheathre?.type
+        }
+    }
+    
+    
+    // MARK: - METHOD SETUP NAVIGATION BAR
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem?.tintColor = .black
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentTheathre?.name
+        saveButton.isEnabled = true
     }
     
     

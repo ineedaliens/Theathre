@@ -15,6 +15,8 @@ let realm = try! Realm()
 // MARK: - CLASS STORAGE MANAGER
 class StorageManager {
     
+    
+    // MARK: - METHOD SAVE OBJECT TO DATABASE
     static func saveObject(_ theathre: Theathre) {
         try! realm.write {
             realm.add(theathre)
@@ -22,7 +24,7 @@ class StorageManager {
     }
     
     
-    // MARK: - TABLE METHOD DID SELECT ROW AT INDEX PATH
+    // MARK: - METHOD DELETE OBJECT FROM DATABASE
     static func deleteObject (_ theathre: Theathre) {
         try! realm.write {
             realm.delete(theathre)

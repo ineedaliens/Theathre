@@ -78,6 +78,7 @@
                                     <outlet property="locationLabel" destination="EnZ-Fk-Q3I" id="9GO-Zr-ufL"/>
                                     <outlet property="nameLabel" destination="yDk-X9-0nW" id="Y9r-m7-fB3"/>
                                     <outlet property="typeLabel" destination="WIn-5K-EaZ" id="nRk-7g-vBc"/>
+                                    <segue destination="LsD-SJ-D7r" kind="show" identifier="showDetail" id="dcX-o5-29W"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,7 +87,7 @@
                             <outlet property="delegate" destination="yKI-mz-gWV" id="svr-ow-Eyb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="THEATHRE" id="f2J-ld-yqV">
+                    <navigationItem key="navigationItem" title="THEATHRE" largeTitleDisplayMode="never" id="f2J-ld-yqV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="L2e-xq-u3w">
                             <connections>
                                 <segue destination="SYQ-BS-dAc" kind="presentation" modalTransitionStyle="crossDissolve" id="emp-1W-kyI"/>
@@ -103,7 +104,7 @@
             <objects>
                 <tableViewController id="LsD-SJ-D7r" customClass="NewTableViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6eQ-Cf-XIM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -246,7 +247,7 @@
                             <outlet property="delegate" destination="LsD-SJ-D7r" id="bQH-Rl-zzM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NEW THEATHRE" id="9Xo-DG-h3n">
+                    <navigationItem key="navigationItem" title="NEW THEATHRE" largeTitleDisplayMode="always" id="9Xo-DG-h3n">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gpj-mJ-rmf">
                             <connections>
                                 <action selector="cancelToMainScreen:" destination="LsD-SJ-D7r" id="38T-5S-qh9"/>
@@ -269,15 +270,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNL-jm-41j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cYn-lt-lN6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="80"/>
+            <point key="canvasLocation" x="861" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kxi-uo-Cfr">
             <objects>
                 <navigationController id="W9o-Fw-NbQ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gh6-VU-thI">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Gh6-VU-thI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="yKI-mz-gWV" kind="relationship" relationship="rootViewController" id="4pL-UW-V7e"/>
@@ -303,9 +305,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKF-Mh-Uja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864" y="80"/>
+            <point key="canvasLocation" x="861" y="-533"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dcX-o5-29W"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Фон" width="626" height="626"/>
         <systemColor name="systemBackgroundColor">

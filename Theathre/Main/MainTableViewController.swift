@@ -98,7 +98,7 @@ class MainTableViewController: UITableViewController {
     // MARK: - UNWIND SEGUE
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard let theathreVC = segue.source as? NewTableViewController else { return }
-        theathreVC.saveNewTheathre()
+        theathreVC.saveTheathre()
         
         tableView.reloadData()
     }
@@ -106,6 +106,11 @@ class MainTableViewController: UITableViewController {
     
     // MARK: - PREPARE FOR SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let theathre = theathres[indexPath.row]
+            let dvc = segue.destination as? NewTableViewController
+            dvc?.currentTheathre = theathre
     }
+}
 }
