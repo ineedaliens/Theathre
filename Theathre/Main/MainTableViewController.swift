@@ -13,6 +13,8 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControll: UISegmentedControl!
+    @IBOutlet weak var reverseSortingButton: UIBarButtonItem!
     
     
     // MARK: - VAR,LET AND ARRAY
@@ -26,6 +28,8 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     //    Theathre(name: "Волхонка", type: "Драматический театр", location: "ул. Малышева, 21/1, Екатеринбург, Свердловская обл.", theathreImages: "Волхонка"),
     //    Theathre(name: "Камерный Театр Объединенного Музея Писателей Урала", type: "Камерный театр", location: "ул. Пролетарская, 18, Екатеринбург, Свердловская обл.", theathreImages: "Камерный Театр Объединенного Музея Писателей Урала")]
     var theathres: Results<Theathre>!
+    var ascendingSorting = true
+    
     
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
@@ -96,6 +100,39 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return swipe
     }
+    
+    
+    // MARK: - METHOD SORT SELECTION
+    @IBAction func sortSelection(_ sender: UISegmentedControl) {
+    sorting()
+    }
+    
+    
+    // MARK: - METHOD REVERSE SORTING
+    @IBAction func reverseSorting(_ sender: Any ) {
+        
+        ascendingSorting.toggle()
+        
+        if ascendingSorting {
+            reverseSortingButton.image = #imageLiteral(resourceName: "icons8-сортировка-по-убыванию-72")
+        } else {
+            reverseSortingButton.image = #imageLiteral(resourceName: "icons8-сортировка-по-возрастанию-72")
+        }
+        sorting()
+    }
+    
+    
+    // MARK: - PRIVATE METHOD SORTING
+    private func sorting() {
+            if segmentedControll.selectedSegmentIndex == 0 {
+                theathres = theathres.sorted(byKeyPath: "date", ascending: ascendingSorting)
+            } else {
+                theathres = theathres.sorted(byKeyPath: "name", ascending: ascendingSorting)
+            }
+        tableView.reloadData()
+        }
+       
+
     
     
     // MARK: - UNWIND SEGUE

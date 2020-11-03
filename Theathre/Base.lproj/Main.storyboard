@@ -272,6 +272,9 @@
                                     <segment title="Дата"/>
                                     <segment title="Имя"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="LFh-EU-Wce" eventType="valueChanged" id="h7d-MJ-KzH"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ykk-cc-XDU"/>
@@ -284,7 +287,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="THEATHRE" largeTitleDisplayMode="never" id="8pB-RJ-UNj">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-сортировка-по-убыванию-72" id="XTI-Lm-NS5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-сортировка-по-убыванию-72" id="XTI-Lm-NS5">
+                            <connections>
+                                <action selector="reverseSorting:" destination="LFh-EU-Wce" id="7li-iu-oO9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GOp-dj-Cd0">
                             <connections>
                                 <segue destination="SYQ-BS-dAc" kind="presentation" id="dVM-h4-hmS"/>
@@ -292,6 +299,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reverseSortingButton" destination="XTI-Lm-NS5" id="OzZ-Dj-awW"/>
+                        <outlet property="segmentedControll" destination="VWQ-ct-Suw" id="8cZ-ec-JEa"/>
                         <outlet property="tableView" destination="qwd-id-GDs" id="oXj-yf-bsV"/>
                     </connections>
                 </viewController>
