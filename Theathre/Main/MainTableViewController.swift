@@ -27,9 +27,17 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     //    Theathre(name: "Коляда-Театр", type: "Частный театр", location: "просп. Ленина, 97, Екатеринбург, Свердловская обл.", theathreImages: "Коляда-Театр"),
     //    Theathre(name: "Волхонка", type: "Драматический театр", location: "ул. Малышева, 21/1, Екатеринбург, Свердловская обл.", theathreImages: "Волхонка"),
     //    Theathre(name: "Камерный Театр Объединенного Музея Писателей Урала", type: "Камерный театр", location: "ул. Пролетарская, 18, Екатеринбург, Свердловская обл.", theathreImages: "Камерный Театр Объединенного Музея Писателей Урала")]
-    var theathres: Results<Theathre>!
-    var ascendingSorting = true
-    
+    private var theathres: Results<Theathre>!
+    private var ascendingSorting = true
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var filteredTheathres: Results<Theathre>!
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
@@ -38,8 +46,15 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         tableView.estimatedRowHeight = 85
+        
+        // MARK: - SETUP SEARCH CONTROLLER
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
-    
+        
     
     // MARK: - TABLE METHOD NIMBER OF SECTIONS
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,7 +65,9 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - TABLE METHOD NUMBER OF ROWS IN SECTION
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        if isFiltering {
+            return filteredTheathres.count
+        }
         return theathres.isEmpty ? 0 : theathres.count
     }
     
@@ -65,7 +82,13 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
         
-        let theathres = self.theathres[indexPath.row]
+        var theathres = Theathre()
+        if isFiltering {
+            theathres = filteredTheathres[indexPath.row]
+        } else {
+            theathres = self.theathres[indexPath.row]
+        }
+        
         
         cell.nameLabel.text = theathres.name
         cell.typeLabel.text = theathres.type
@@ -148,9 +171,32 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
-            let theathre = theathres[indexPath.row]
+            let theathre: Theathre
+            if isFiltering {
+                theathre = filteredTheathres[indexPath.row]
+            } else {
+                theathre = theathres[indexPath.row]
+            }
             let dvc = segue.destination as? NewTableViewController
             dvc?.currentTheathre = theathre
         }
+    }
+}
+
+
+// MARK: - EXTENSION FOR MAIN TABLE VIEW CONTROLLER
+extension MainTableViewController: UISearchResultsUpdating {
+    
+    
+    // MARK: - EXTENSION METHOD UPDATE SEARCH RESULTS
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    
+    // MARK: - EXTENSION METHOD FILTERED CONTENT FOR SEARCH TEXT
+    private func filteredContentForSearchText(_ searchText: String) {
+        filteredTheathres = theathres.filter("name CONTAINS[c] %@ OR location CONTAINS[c] %@ OR type CONTAINS[c] %@", searchText, searchText, searchText)
+        tableView.reloadData()
     }
 }
