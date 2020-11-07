@@ -155,7 +155,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
                                                     <rect key="frame" x="81" y="48" width="252" height="44"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
@@ -212,9 +212,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qwd-id-GDs">
-                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-id-GDs">
+                                <rect key="frame" x="0.0" y="120" width="414" height="776"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="eLO-hr-vC3" customClass="MainTableViewCell" customModule="Theathre" customModuleProvider="target">
@@ -306,9 +305,12 @@
                         <viewLayoutGuide key="safeArea" id="ykk-cc-XDU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qwd-id-GDs" firstAttribute="top" secondItem="VWQ-ct-Suw" secondAttribute="bottom" id="B1a-a2-Xb1"/>
+                            <constraint firstItem="qwd-id-GDs" firstAttribute="top" secondItem="VWQ-ct-Suw" secondAttribute="bottom" constant="1" id="8gh-jg-uvN"/>
+                            <constraint firstItem="qwd-id-GDs" firstAttribute="leading" secondItem="ykk-cc-XDU" secondAttribute="leading" id="DKo-NB-U53"/>
+                            <constraint firstAttribute="bottom" secondItem="qwd-id-GDs" secondAttribute="bottom" id="Se8-xo-RiJ"/>
                             <constraint firstItem="VWQ-ct-Suw" firstAttribute="leading" secondItem="ykk-cc-XDU" secondAttribute="leading" id="Uy1-X6-hgb"/>
                             <constraint firstItem="VWQ-ct-Suw" firstAttribute="top" secondItem="ykk-cc-XDU" secondAttribute="top" id="Z6a-Xq-bda"/>
+                            <constraint firstItem="qwd-id-GDs" firstAttribute="trailing" secondItem="ykk-cc-XDU" secondAttribute="trailing" id="bs2-7N-TYX"/>
                             <constraint firstItem="VWQ-ct-Suw" firstAttribute="trailing" secondItem="ykk-cc-XDU" secondAttribute="trailing" id="xdS-SC-144"/>
                         </constraints>
                     </view>
@@ -371,6 +373,11 @@
             <point key="canvasLocation" x="861" y="-533"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="te0-xC-OcV">
+            <size key="intrinsicContentSize" width="252" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="anW-sE-zne"/>
     </inferredMetricsTieBreakers>

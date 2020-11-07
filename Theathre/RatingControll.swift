@@ -7,10 +7,15 @@
 
 import UIKit
 
-@IBDesignable   class RatingControll: UIStackView {
-
+@IBDesignable  class RatingControll: UIStackView {
+    
     
     // MARK: - PROPERTIES
+    public var rating = 0 {
+        didSet {
+            updateButtonSelectionState()
+        }
+    }
     private var ratingButtons = [UIButton]()
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
@@ -24,7 +29,7 @@ import UIKit
         }
     }
     
-    public var rating = 0
+    
     
     // MARK: - INITIALIZATION
     override init(frame: CGRect) {
@@ -39,8 +44,18 @@ import UIKit
     
     
     // MARK: - BUTTON ACTION
-   @objc func ratingButtonTapped(button: UIButton) {
-        print("Button pressed 👍")
+    @objc func ratingButtonTapped(button: UIButton) {
+        guard let index = ratingButtons.firstIndex(of: button) else { return }
+        
+        
+        // MARK: - CALCULATE RATING OF THE SELECTED BUTTON
+        let selectedRating = index + 1
+        
+        if selectedRating == rating {
+            rating = 0
+        } else {
+            rating = selectedRating
+        }
     }
     
     
@@ -55,6 +70,13 @@ import UIKit
         ratingButtons.removeAll()
         
         
+        // MARK: - LOAD BUTTON IMAGE
+        let bundle = Bundle(for: type(of: self))
+        let filledStar = UIImage(named: "filledStar.png", in: bundle, compatibleWith: self.traitCollection)
+        let emptyStar = UIImage(named: "emptyStar.png", in: bundle, compatibleWith: self.traitCollection)
+        let hightlightStar = UIImage(named: "highlightedStar.png", in: bundle, compatibleWith: self.traitCollection)
+        
+        
         
         for _ in 0..<starCount {
             
@@ -65,6 +87,13 @@ import UIKit
             
             // MARK: - BACKGROUND BUTTON
             button.backgroundColor = .red
+            
+            
+            // MARK: - SET BUTTON IMAGE
+            button.setImage(emptyStar, for: .normal)
+            button.setImage(filledStar, for: .selected)
+            button.setImage(hightlightStar, for: .highlighted)
+            button.setImage(hightlightStar, for: [.highlighted, .selected])
             
             
             // MARK: - ADD CONSTRAINTS
@@ -83,6 +112,16 @@ import UIKit
             
             // MARK: - ADD NEW BUTTON ON THE RATING BUTTON ARRAY
             ratingButtons.append(button)
+        }
+        
+        updateButtonSelectionState()
+        
+    }
+    
+    // MARK: - PRIVATE METHOD UPDATE BUTTON SELECTION STATE
+    private func updateButtonSelectionState() {
+        for (index, button) in ratingButtons.enumerated() {
+            button.isSelected = index < rating
         }
     }
 }
