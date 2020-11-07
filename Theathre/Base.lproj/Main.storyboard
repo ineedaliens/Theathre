@@ -148,6 +148,29 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="d2T-3R-Xgl">
+                                        <rect key="frame" x="0.0" y="503" width="414" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2T-3R-Xgl" id="G0P-Bg-KAG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
+                                                    <rect key="frame" x="81" y="48" width="252" height="44"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="4uY-ZY-Shs"/>
+                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="UWv-iU-Dgp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -190,7 +213,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qwd-id-GDs">
-                                <rect key="frame" x="0.0" y="159" width="414" height="737"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -266,8 +289,11 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-ct-Suw">
-                                <rect key="frame" x="0.0" y="88" width="414" height="71"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="qgu-IH-Mls"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Дата"/>
                                     <segment title="Имя"/>
@@ -280,10 +306,10 @@
                         <viewLayoutGuide key="safeArea" id="ykk-cc-XDU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qwd-id-GDs" firstAttribute="top" secondItem="VWQ-ct-Suw" secondAttribute="bottom" constant="1" id="5Ke-lJ-BmI"/>
-                            <constraint firstItem="VWQ-ct-Suw" firstAttribute="leading" secondItem="ykk-cc-XDU" secondAttribute="leading" id="UeS-tA-5MQ"/>
-                            <constraint firstItem="VWQ-ct-Suw" firstAttribute="trailing" secondItem="ykk-cc-XDU" secondAttribute="trailing" id="fgd-s1-L4j"/>
-                            <constraint firstItem="VWQ-ct-Suw" firstAttribute="top" secondItem="ykk-cc-XDU" secondAttribute="top" id="kc8-zP-kIo"/>
+                            <constraint firstItem="qwd-id-GDs" firstAttribute="top" secondItem="VWQ-ct-Suw" secondAttribute="bottom" id="B1a-a2-Xb1"/>
+                            <constraint firstItem="VWQ-ct-Suw" firstAttribute="leading" secondItem="ykk-cc-XDU" secondAttribute="leading" id="Uy1-X6-hgb"/>
+                            <constraint firstItem="VWQ-ct-Suw" firstAttribute="top" secondItem="ykk-cc-XDU" secondAttribute="top" id="Z6a-Xq-bda"/>
+                            <constraint firstItem="VWQ-ct-Suw" firstAttribute="trailing" secondItem="ykk-cc-XDU" secondAttribute="trailing" id="xdS-SC-144"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="THEATHRE" largeTitleDisplayMode="never" id="8pB-RJ-UNj">

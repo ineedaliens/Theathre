@@ -17,6 +17,7 @@
 		E6597F0F254EA913004D86BA /* Pods_Theathre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6079A6A5AECE40C3D900E1 /* Pods_Theathre.framework */; };
 		E6597F10254EA913004D86BA /* Pods_Theathre.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC6079A6A5AECE40C3D900E1 /* Pods_Theathre.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E679EDB5254D5CEA0083BB85 /* Theathre.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679EDB4254D5CEA0083BB85 /* Theathre.swift */; };
+		E6BB39322556ABCE006E6800 /* RatingControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB39312556ABCE006E6800 /* RatingControll.swift */; };
 		E6CF02B72548705E0033E44A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF02B62548705E0033E44A /* MainTableViewCell.swift */; };
 		E6DA4D11254EAF2200F306C3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DA4D10254EAF2100F306C3 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		E62877B52546908F008029D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E62877BF25469EAF008029D0 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		E679EDB4254D5CEA0083BB85 /* Theathre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theathre.swift; sourceTree = "<group>"; };
+		E6BB39312556ABCE006E6800 /* RatingControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControll.swift; sourceTree = "<group>"; };
 		E6CF02B62548705E0033E44A /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		E6DA4D10254EAF2100F306C3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E6DA4D12254EB44B00F306C3 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				E62877A72546908E008029D0 /* AppDelegate.swift */,
 				E62877A92546908E008029D0 /* SceneDelegate.swift */,
 				E62877AD2546908E008029D0 /* Main.storyboard */,
+				E6BB39312556ABCE006E6800 /* RatingControll.swift */,
 				E679EDB7254D5D170083BB85 /* Model */,
 				E679EDB2254D5CAB0083BB85 /* Add New Theathre */,
 				E679EDB0254D5C950083BB85 /* Main */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF80D34254C907800133465 /* NewTableViewController.swift in Sources */,
+				E6BB39322556ABCE006E6800 /* RatingControll.swift in Sources */,
 				E62877A82546908E008029D0 /* AppDelegate.swift in Sources */,
 				E679EDB5254D5CEA0083BB85 /* Theathre.swift in Sources */,
 				E6DA4D11254EAF2200F306C3 /* StorageManager.swift in Sources */,
