@@ -8,14 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NEW THEATHRE-->
+        <!--НОВЫЙ ТЕАТР-->
         <scene sceneID="nAO-qY-ngL">
             <objects>
                 <tableViewController id="LsD-SJ-D7r" customClass="NewTableViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6eQ-Cf-XIM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="ndg-fd-ImK">
@@ -155,8 +155,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
-                                                    <rect key="frame" x="81" y="48" width="252" height="44"/>
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
+                                                    <rect key="frame" x="53.5" y="42.5" width="307" height="55"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                             <integer key="value" value="5"/>
@@ -165,8 +165,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="4uY-ZY-Shs"/>
-                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="UWv-iU-Dgp"/>
+                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="2Ge-j1-KIO"/>
+                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="t8b-Qz-COx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -179,7 +179,7 @@
                             <outlet property="delegate" destination="LsD-SJ-D7r" id="bQH-Rl-zzM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NEW THEATHRE" largeTitleDisplayMode="always" id="9Xo-DG-h3n">
+                    <navigationItem key="navigationItem" title="НОВЫЙ ТЕАТР" largeTitleDisplayMode="always" id="9Xo-DG-h3n">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gpj-mJ-rmf">
                             <connections>
                                 <action selector="cancelToMainScreen:" destination="LsD-SJ-D7r" id="38T-5S-qh9"/>
@@ -202,9 +202,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNL-jm-41j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cYn-lt-lN6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="861" y="80"/>
+            <point key="canvasLocation" x="860.86956521739137" y="79.6875"/>
         </scene>
-        <!--THEATHRE-->
+        <!--ТЕАТРЫ-->
         <scene sceneID="bmu-Gj-wOI">
             <objects>
                 <viewController storyboardIdentifier="viewController" id="LFh-EU-Wce" customClass="MainTableViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
@@ -314,7 +314,7 @@
                             <constraint firstItem="VWQ-ct-Suw" firstAttribute="trailing" secondItem="ykk-cc-XDU" secondAttribute="trailing" id="xdS-SC-144"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="THEATHRE" largeTitleDisplayMode="never" id="8pB-RJ-UNj">
+                    <navigationItem key="navigationItem" title="ТЕАТРЫ" largeTitleDisplayMode="never" id="8pB-RJ-UNj">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-сортировка-по-убыванию-72" id="XTI-Lm-NS5">
                             <connections>
                                 <action selector="reverseSorting:" destination="LFh-EU-Wce" id="7li-iu-oO9"/>
@@ -370,7 +370,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKF-Mh-Uja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="-533"/>
+            <point key="canvasLocation" x="861" y="-552"/>
         </scene>
     </scenes>
     <designables>

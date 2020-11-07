@@ -18,7 +18,7 @@ import UIKit
     }
     private var ratingButtons = [UIButton]()
     
-    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
+    @IBInspectable var starSize: CGSize = CGSize(width: 55, height: 55) {
         didSet {
             setupButtons()
         }
@@ -72,9 +72,9 @@ import UIKit
         
         // MARK: - LOAD BUTTON IMAGE
         let bundle = Bundle(for: type(of: self))
-        let filledStar = UIImage(named: "filledStar.png", in: bundle, compatibleWith: self.traitCollection)
-        let emptyStar = UIImage(named: "emptyStar.png", in: bundle, compatibleWith: self.traitCollection)
-        let hightlightStar = UIImage(named: "highlightedStar.png", in: bundle, compatibleWith: self.traitCollection)
+        let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
+        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
+        let hightlightStar = UIImage(named: "hightlightStar", in: bundle, compatibleWith: self.traitCollection)
         
         
         
@@ -86,7 +86,7 @@ import UIKit
             
             
             // MARK: - BACKGROUND BUTTON
-            button.backgroundColor = .red
+//            button.backgroundColor = .lightGray
             
             
             // MARK: - SET BUTTON IMAGE
