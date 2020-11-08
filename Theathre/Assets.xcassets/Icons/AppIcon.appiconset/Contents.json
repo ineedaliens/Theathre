@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Icon iPhone notification 40x40 2x.jpeg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
@@ -12,6 +13,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "Icon iPhone Settings 58x58 2x.jpeg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
