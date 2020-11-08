@@ -14,10 +14,11 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var imagesView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var ratingControll: RatingControll!
     
     
     // MARK: - VAR,LET AND ARRAY
-    var currentTheathre: Theathre?
+    var currentTheathre: Theathre!
     var imagesIsChange = false
     
     
@@ -84,13 +85,14 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         }
         
         let imageData = image.pngData()
-        let newTheathres = Theathre(name: textFields[0].text!, location: textFields[1].text, type: textFields[2].text, imageData: imageData)
+        let newTheathres = Theathre(name: textFields[0].text!, location: textFields[1].text, type: textFields[2].text, imageData: imageData, rating: Double(ratingControll.rating))
         if currentTheathre != nil {
             try! realm.write {
                 currentTheathre?.name = newTheathres.name
                 currentTheathre?.location = newTheathres.location
                 currentTheathre?.type = newTheathres.type
                 currentTheathre?.imageData = newTheathres.imageData
+                currentTheathre.rating = newTheathres.rating
             }
             } else {
                 StorageManager.saveObject(newTheathres)
@@ -121,6 +123,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
             textFields[0].text = currentTheathre?.name
             textFields[1].text = currentTheathre?.location
             textFields[2].text = currentTheathre?.type
+            ratingControll.rating = Int(currentTheathre.rating)
         }
     }
     
