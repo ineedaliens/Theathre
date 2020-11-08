@@ -155,14 +155,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
-                                                    <rect key="frame" x="53.5" y="42.5" width="307" height="55"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </stackView>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="ndY-8d-DKF" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="87" y="48" width="240" height="44"/>
                                                     <color key="backgroundColor" red="0.043862842020000001" green="0.66505622860000002" blue="0.74511343240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -176,16 +168,9 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="2Ge-j1-KIO"/>
                                                 <constraint firstItem="ndY-8d-DKF" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="aSa-ur-Fvv"/>
-                                                <constraint firstItem="te0-xC-OcV" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="t8b-Qz-COx"/>
                                                 <constraint firstItem="ndY-8d-DKF" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="vAl-Aa-9Sn"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="te0-xC-OcV"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
@@ -212,7 +197,6 @@
                     <connections>
                         <outlet property="cosmosView" destination="ndY-8d-DKF" id="nYo-6q-wSh"/>
                         <outlet property="imagesView" destination="bqT-5d-Hb2" id="KXx-xm-Kg2"/>
-                        <outlet property="ratingControll" destination="te0-xC-OcV" id="8r3-kP-Twf"/>
                         <outlet property="saveButton" destination="6HB-Ch-0Gr" id="MdO-X9-d11"/>
                         <outletCollection property="textFields" destination="wUy-CM-ssp" collectionClass="NSMutableArray" id="5wB-tb-RXq"/>
                         <outletCollection property="textFields" destination="GHh-mo-C9M" collectionClass="NSMutableArray" id="i3N-2g-dru"/>
@@ -412,9 +396,6 @@
         </designable>
         <designable name="ndY-8d-DKF">
             <size key="intrinsicContentSize" width="240" height="44"/>
-        </designable>
-        <designable name="te0-xC-OcV">
-            <size key="intrinsicContentSize" width="252" height="44"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
