@@ -156,18 +156,36 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="te0-xC-OcV" customClass="RatingControll" customModule="Theathre" customModuleProvider="target">
-                                                    <rect key="frame" x="81" y="48" width="252" height="44"/>
+                                                    <rect key="frame" x="53.5" y="42.5" width="307" height="55"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                             <integer key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="ndY-8d-DKF" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="87" y="48" width="240" height="44"/>
+                                                    <color key="backgroundColor" red="0.043862842020000001" green="0.66505622860000002" blue="0.74511343240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="44"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="emtyStar"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="filledStar"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="te0-xC-OcV" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="2Ge-j1-KIO"/>
+                                                <constraint firstItem="ndY-8d-DKF" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="aSa-ur-Fvv"/>
                                                 <constraint firstItem="te0-xC-OcV" firstAttribute="centerX" secondItem="G0P-Bg-KAG" secondAttribute="centerX" id="t8b-Qz-COx"/>
+                                                <constraint firstItem="ndY-8d-DKF" firstAttribute="centerY" secondItem="G0P-Bg-KAG" secondAttribute="centerY" id="vAl-Aa-9Sn"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="te0-xC-OcV"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
@@ -192,6 +210,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cosmosView" destination="ndY-8d-DKF" id="nYo-6q-wSh"/>
                         <outlet property="imagesView" destination="bqT-5d-Hb2" id="KXx-xm-Kg2"/>
                         <outlet property="ratingControll" destination="te0-xC-OcV" id="8r3-kP-Twf"/>
                         <outlet property="saveButton" destination="6HB-Ch-0Gr" id="MdO-X9-d11"/>
@@ -233,48 +252,61 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="vR9-3v-2k7">
-                                                    <rect key="frame" x="90" y="17" width="304" height="57"/>
+                                                    <rect key="frame" x="90" y="17" width="218" height="57"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbe-M3-GcE">
-                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="19.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="19.5" id="IWC-pu-70B"/>
-                                                                <constraint firstAttribute="width" constant="304" id="yNq-Zc-W3X"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="0.0" width="218" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUI-fR-BN9">
-                                                            <rect key="frame" x="0.0" y="22.5" width="304" height="17"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="304" id="qc6-Od-wJb"/>
-                                                                <constraint firstAttribute="height" constant="17" id="qwv-3r-4Xn"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="22.5" width="218" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bui-0H-HlH">
-                                                            <rect key="frame" x="0.0" y="42.5" width="304" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="42.5" width="218" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="90" placeholderIntrinsicHeight="14" translatesAutoresizingMaskIntoConstraints="NO" id="hPE-iP-Lci" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="316" y="35.5" width="90" height="14"/>
+                                                    <color key="backgroundColor" red="0.043862842020000001" green="0.66505622860000002" blue="0.74511343240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="bYV-lL-zUj"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="emtyStar"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="filledStar"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vR9-3v-2k7" firstAttribute="bottom" secondItem="fPM-Pg-DoX" secondAttribute="bottomMargin" id="0dG-G2-22Y"/>
+                                                <constraint firstItem="hPE-iP-Lci" firstAttribute="leading" secondItem="vR9-3v-2k7" secondAttribute="trailing" constant="8" id="2a9-9f-kCi"/>
                                                 <constraint firstItem="ZOb-BO-E7N" firstAttribute="leading" secondItem="fPM-Pg-DoX" secondAttribute="leading" constant="15" id="2eo-Eb-gTO"/>
+                                                <constraint firstItem="vR9-3v-2k7" firstAttribute="top" secondItem="fPM-Pg-DoX" secondAttribute="topMargin" constant="6" id="7gw-PC-Ggc"/>
+                                                <constraint firstItem="hPE-iP-Lci" firstAttribute="centerY" secondItem="fPM-Pg-DoX" secondAttribute="centerY" id="SLd-Js-InA"/>
+                                                <constraint firstItem="vR9-3v-2k7" firstAttribute="leading" secondItem="ZOb-BO-E7N" secondAttribute="trailing" constant="10" id="Ya0-Sc-jzE"/>
                                                 <constraint firstItem="ZOb-BO-E7N" firstAttribute="top" secondItem="fPM-Pg-DoX" secondAttribute="top" constant="10" id="g8l-5v-5IP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vR9-3v-2k7" secondAttribute="trailing" id="koF-YG-Bzv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="vR9-3v-2k7" secondAttribute="bottom" id="pJP-ip-Bbj"/>
-                                                <constraint firstItem="vR9-3v-2k7" firstAttribute="leading" secondItem="ZOb-BO-E7N" secondAttribute="trailing" constant="10" id="ruK-0i-huj"/>
+                                                <constraint firstAttribute="trailing" secondItem="hPE-iP-Lci" secondAttribute="trailing" constant="8" id="mDD-CB-chO"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZOb-BO-E7N" secondAttribute="bottom" constant="10" id="x8V-49-3Es"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="cosmosView" destination="hPE-iP-Lci" id="0QW-iJ-M60"/>
                                             <outlet property="images" destination="ZOb-BO-E7N" id="bU4-SK-fJI"/>
                                             <outlet property="locationLabel" destination="bui-0H-HlH" id="vKe-jb-d3Z"/>
                                             <outlet property="nameLabel" destination="jbe-M3-GcE" id="Lf2-W8-9dA"/>
@@ -375,6 +407,12 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="hPE-iP-Lci">
+            <size key="intrinsicContentSize" width="90" height="14"/>
+        </designable>
+        <designable name="ndY-8d-DKF">
+            <size key="intrinsicContentSize" width="240" height="44"/>
+        </designable>
         <designable name="te0-xC-OcV">
             <size key="intrinsicContentSize" width="252" height="44"/>
         </designable>
@@ -383,6 +421,8 @@
         <segue reference="anW-sE-zne"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="emtyStar" width="19" height="19"/>
+        <image name="filledStar" width="19" height="19"/>
         <image name="icons8-сортировка-по-убыванию-72" width="25" height="25"/>
         <image name="Фон" width="626" height="626"/>
         <systemColor name="systemBackgroundColor">

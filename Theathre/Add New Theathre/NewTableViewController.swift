@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class NewTableViewController: UITableViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
     
@@ -15,11 +16,13 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var ratingControll: RatingControll!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     
     // MARK: - VAR,LET AND ARRAY
     var currentTheathre: Theathre!
     var imagesIsChange = false
+    var currentRating =  0.0
     
     
     // MARK: - METHOD VIEW DID LOAD
@@ -34,6 +37,11 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         setupEditScreen()
         
         textFields[0].addTarget(self, action: #selector(textFieldsChange), for: .editingChanged)
+        
+        cosmosView.settings.fillMode = .half
+        cosmosView.didTouchCosmos = { rating in
+            self.currentRating = rating
+        }
     }
     
     
@@ -85,7 +93,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         }
         
         let imageData = image.pngData()
-        let newTheathres = Theathre(name: textFields[0].text!, location: textFields[1].text, type: textFields[2].text, imageData: imageData, rating: Double(ratingControll.rating))
+        let newTheathres = Theathre(name: textFields[0].text!, location: textFields[1].text, type: textFields[2].text, imageData: imageData, rating: currentRating)
         if currentTheathre != nil {
             try! realm.write {
                 currentTheathre?.name = newTheathres.name
@@ -123,7 +131,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
             textFields[0].text = currentTheathre?.name
             textFields[1].text = currentTheathre?.location
             textFields[2].text = currentTheathre?.type
-            ratingControll.rating = Int(currentTheathre.rating)
+            cosmosView.rating = currentTheathre.rating
         }
     }
     

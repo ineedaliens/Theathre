@@ -68,7 +68,7 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         if isFiltering {
             return filteredTheathres.count
         }
-        return theathres.isEmpty ? 0 : theathres.count
+        return theathres.count
     }
     
     
@@ -82,20 +82,16 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
         
-        var theathres = Theathre()
-        if isFiltering {
-            theathres = filteredTheathres[indexPath.row]
-        } else {
-            theathres = self.theathres[indexPath.row]
-        }
+//        var theathres = Theathre()
+   
+        let theathres = isFiltering ? filteredTheathres[indexPath.row] : self.theathres[indexPath.row]
         
         
         cell.nameLabel.text = theathres.name
         cell.typeLabel.text = theathres.type
         cell.locationLabel.text = theathres.location
         cell.images.image = UIImage(data: theathres.imageData!)
-        cell.images.layer.cornerRadius = 29.5
-        cell.images.clipsToBounds = true
+        cell.cosmosView.rating = theathres.rating
         
         
         cell.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
@@ -169,12 +165,7 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
-            let theathre: Theathre
-            if isFiltering {
-                theathre = filteredTheathres[indexPath.row]
-            } else {
-                theathre = theathres[indexPath.row]
-            }
+            let theathre = isFiltering ? filteredTheathres[indexPath.row] : theathres[indexPath.row]
             let dvc = segue.destination as? NewTableViewController
             dvc?.currentTheathre = theathre
         }
