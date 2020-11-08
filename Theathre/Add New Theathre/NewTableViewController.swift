@@ -17,6 +17,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var ratingControll: RatingControll!
     @IBOutlet weak var cosmosView: CosmosView!
+    @IBOutlet weak var mapButton: UIButton!
     
     
     // MARK: - VAR,LET AND ARRAY
@@ -42,6 +43,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         cosmosView.didTouchCosmos = { rating in
             self.currentRating = rating
         }
+        mapButton.layer.borderWidth = 1
     }
     
     
