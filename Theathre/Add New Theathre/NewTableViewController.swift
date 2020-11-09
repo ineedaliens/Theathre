@@ -83,6 +83,17 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     }
     
     
+    // MARK: - METHOD PREPARE FOR SEGUE
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "showMap" {
+            return
+        }
+        let mapVC = segue.destination as! MapViewController
+        mapVC.theathre = currentTheathre
+    }
+    
+    
+    
     // MARK: - METHOD SAVE NEW THEATHRE
     func saveTheathre() {
         
