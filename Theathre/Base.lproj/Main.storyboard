@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="LsD-SJ-D7r" customClass="NewTableViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6eQ-Cf-XIM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -30,12 +30,26 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Фон" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-5d-Hb2">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Km-e2-bDv">
+                                                    <rect key="frame" x="357" y="168" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="mKF-rr-qDd"/>
+                                                        <constraint firstAttribute="height" constant="50" id="yZa-co-e9p"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icons8-карта-сокровищ-100"/>
+                                                    <connections>
+                                                        <segue destination="4As-Ts-V45" kind="show" identifier="showMap" id="M5e-nk-ye1"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bqT-5d-Hb2" firstAttribute="top" secondItem="t3n-Io-gAY" secondAttribute="top" id="0ri-2I-AvA"/>
+                                                <constraint firstItem="0Km-e2-bDv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t3n-Io-gAY" secondAttribute="leading" constant="20" symbolic="YES" id="MUH-Vy-q7I"/>
                                                 <constraint firstAttribute="bottom" secondItem="bqT-5d-Hb2" secondAttribute="bottom" id="Pnj-mI-MAj"/>
                                                 <constraint firstAttribute="trailing" secondItem="bqT-5d-Hb2" secondAttribute="trailing" id="RsW-Nr-ovz"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Km-e2-bDv" secondAttribute="bottom" constant="32" id="afi-ea-b9x"/>
                                                 <constraint firstItem="bqT-5d-Hb2" firstAttribute="leading" secondItem="t3n-Io-gAY" secondAttribute="leading" id="v3E-Jg-rLa"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Km-e2-bDv" secondAttribute="trailing" constant="7" id="wFD-bs-u5Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -197,6 +211,7 @@
                     <connections>
                         <outlet property="cosmosView" destination="ndY-8d-DKF" id="nYo-6q-wSh"/>
                         <outlet property="imagesView" destination="bqT-5d-Hb2" id="KXx-xm-Kg2"/>
+                        <outlet property="mapButton" destination="0Km-e2-bDv" id="E4L-cy-1L1"/>
                         <outlet property="saveButton" destination="6HB-Ch-0Gr" id="MdO-X9-d11"/>
                         <outletCollection property="textFields" destination="wUy-CM-ssp" collectionClass="NSMutableArray" id="5wB-tb-RXq"/>
                         <outletCollection property="textFields" destination="GHh-mo-C9M" collectionClass="NSMutableArray" id="i3N-2g-dru"/>
@@ -207,6 +222,33 @@
                 <exit id="cYn-lt-lN6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="860.86956521739137" y="79.6875"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Sis-gF-H9I">
+            <objects>
+                <viewController id="4As-Ts-V45" customClass="MapViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S1K-5I-lyw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-5W-4Pa">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aG8-HG-HgO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iVs-5W-4Pa" firstAttribute="top" secondItem="aG8-HG-HgO" secondAttribute="top" id="co6-9z-CrU"/>
+                            <constraint firstItem="iVs-5W-4Pa" firstAttribute="leading" secondItem="aG8-HG-HgO" secondAttribute="leading" id="shd-XM-gPw"/>
+                            <constraint firstItem="iVs-5W-4Pa" firstAttribute="trailing" secondItem="aG8-HG-HgO" secondAttribute="trailing" id="t9c-8s-euF"/>
+                            <constraint firstAttribute="bottom" secondItem="iVs-5W-4Pa" secondAttribute="bottom" id="vvp-JJ-q2g"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5Gp-EA-ohQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yts-nw-1bX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476.8115942028987" y="79.6875"/>
         </scene>
         <!--ТЕАТРЫ-->
         <scene sceneID="bmu-Gj-wOI">
@@ -399,11 +441,12 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="anW-sE-zne"/>
+        <segue reference="BTJ-0q-SkL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="emtyStar" width="19" height="19"/>
         <image name="filledStar" width="19" height="19"/>
+        <image name="icons8-карта-сокровищ-100" width="33.333332061767578" height="33.333332061767578"/>
         <image name="icons8-сортировка-по-убыванию-72" width="25" height="25"/>
         <image name="Фон" width="626" height="626"/>
         <systemColor name="systemBackgroundColor">
