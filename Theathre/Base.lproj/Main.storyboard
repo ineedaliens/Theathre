@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="LsD-SJ-D7r" customClass="NewTableViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6eQ-Cf-XIM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -228,11 +228,11 @@
             <objects>
                 <viewController id="4As-Ts-V45" customClass="MapViewController" customModule="Theathre" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S1K-5I-lyw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-5W-4Pa">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aG8-HG-HgO"/>
@@ -245,6 +245,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5Gp-EA-ohQ"/>
+                    <connections>
+                        <outlet property="mapView" destination="iVs-5W-4Pa" id="grp-LC-mXp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yts-nw-1bX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -441,7 +444,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="BTJ-0q-SkL"/>
+        <segue reference="anW-sE-zne"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="emtyStar" width="19" height="19"/>
