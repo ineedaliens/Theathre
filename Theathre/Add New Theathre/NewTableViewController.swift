@@ -166,6 +166,10 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func backToAddNewTheathre(segue: UIStoryboardSegue) {
+        
+    }
+    
 }
 
 
