@@ -89,7 +89,10 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
             return
         }
         let mapVC = segue.destination as! MapViewController
-        mapVC.theathre = currentTheathre
+        mapVC.theathre.name = textFields[0].text!
+        mapVC.theathre.location = textFields[1].text
+        mapVC.theathre.type = textFields[2].text
+        mapVC.theathre.imageData = imagesView.image?.pngData()
     }
     
     
@@ -97,15 +100,9 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     // MARK: - METHOD SAVE NEW THEATHRE
     func saveTheathre() {
         
-        var image: UIImage!
+        let image = imagesIsChange ? imagesView.image : #imageLiteral(resourceName: "default image ")
         
-        if imagesIsChange{
-            image = imagesView.image
-        } else {
-            image = #imageLiteral(resourceName: "default image ")
-        }
-        
-        let imageData = image.pngData()
+        let imageData = image!.pngData()
         let newTheathres = Theathre(name: textFields[0].text!, location: textFields[1].text, type: textFields[2].text, imageData: imageData, rating: currentRating)
         if currentTheathre != nil {
             try! realm.write {

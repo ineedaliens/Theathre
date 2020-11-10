@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     
     
     // MARK: - VAR
-    var theathre: Theathre!
+    var theathre = Theathre()
     let annotationIdentifier  = "annotationIdentifier"
     
     // MARK: - METHOD VIEW DID LOAD
