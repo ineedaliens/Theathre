@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
 
@@ -18,12 +19,15 @@ class MapViewController: UIViewController {
     // MARK: - VAR
     var theathre = Theathre()
     let annotationIdentifier  = "annotationIdentifier"
+    let locationManager = CLLocationManager()
+    
     
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlaceMark()
         mapView.delegate = self
+        checkLocationServices()
     }
     
 
@@ -61,6 +65,52 @@ class MapViewController: UIViewController {
         })
     }
     
+    
+    // MARK: - METHOD CHECK LOCATION SERVICES
+    private func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAuthorization()
+        } else {
+            let ac = UIAlertController(title: "Ошибка", message: "Геолокация выключина", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "ОК", style: .default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            ac.addAction(okAction)
+            ac.addAction(cancelAction)
+            self.present(ac, animated: true, completion: nil)
+        }
+    }
+    
+    
+    // MARK: - METHOD SETUP LOCATION MANAGER
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    
+    // MARK: - METHOD CHECK LOCATION AUTHORIZATION
+    private func checkLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways: break
+        case .authorizedWhenInUse: mapView.showsUserLocation = true
+            break
+        case .denied: let ac = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            ac.addAction(ok)
+            self.present(ac, animated: true, completion: nil)
+            break
+        case .notDetermined: locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted: let ac = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "", style: .default, handler: nil)
+            ac.addAction(ok)
+            self.present(ac, animated: true, completion: nil)
+        @unknown default:
+            print("New case is available")
+        }
+    }
+    
 }
 
 
@@ -89,5 +139,13 @@ extension MapViewController: MKMapViewDelegate {
  
         
         return annotationView
+    }
+}
+
+
+// MARK: - EXTNESION METHOD VIEW FOR ANNOTATION
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAuthorization()
     }
 }
