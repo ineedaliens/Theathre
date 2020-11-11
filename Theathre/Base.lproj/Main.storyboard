@@ -241,13 +241,28 @@
                                     <segue destination="8FE-Gk-lEa" kind="unwind" unwindAction="backToAddNewTheathreWithSegue:" id="12R-3e-rXj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coz-V0-8Mp">
+                                <rect key="frame" x="344" y="758" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="C8r-Jx-1Cp"/>
+                                    <constraint firstAttribute="height" constant="50" id="CdT-vY-5zK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="icons8-навигация-80"/>
+                                <connections>
+                                    <action selector="centerViewUserLocation" destination="4As-Ts-V45" eventType="touchUpInside" id="LMe-e8-UxL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aG8-HG-HgO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aG8-HG-HgO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MjZ-EE-Q1Q" secondAttribute="trailing" id="7Wi-oH-Bwd"/>
+                            <constraint firstItem="aG8-HG-HgO" firstAttribute="trailing" secondItem="coz-V0-8Mp" secondAttribute="trailing" constant="20" id="QyM-gu-tvT"/>
+                            <constraint firstItem="coz-V0-8Mp" firstAttribute="leading" secondItem="aG8-HG-HgO" secondAttribute="leading" constant="344" id="ULL-5j-ezX"/>
                             <constraint firstItem="iVs-5W-4Pa" firstAttribute="top" secondItem="aG8-HG-HgO" secondAttribute="top" constant="-44" id="co6-9z-CrU"/>
                             <constraint firstItem="MjZ-EE-Q1Q" firstAttribute="top" secondItem="aG8-HG-HgO" secondAttribute="top" constant="20" id="kOt-eY-Zv2"/>
+                            <constraint firstItem="coz-V0-8Mp" firstAttribute="bottom" secondItem="aG8-HG-HgO" secondAttribute="bottom" id="lJh-Xq-oKf"/>
                             <constraint firstItem="MjZ-EE-Q1Q" firstAttribute="leading" secondItem="aG8-HG-HgO" secondAttribute="leading" constant="360" id="r0s-ao-cUe"/>
                             <constraint firstItem="iVs-5W-4Pa" firstAttribute="leading" secondItem="aG8-HG-HgO" secondAttribute="leading" id="shd-XM-gPw"/>
                             <constraint firstItem="iVs-5W-4Pa" firstAttribute="trailing" secondItem="aG8-HG-HgO" secondAttribute="trailing" id="t9c-8s-euF"/>
@@ -256,6 +271,7 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5Gp-EA-ohQ"/>
                     <connections>
+                        <outlet property="centerViewUserLocationButton" destination="coz-V0-8Mp" id="YNA-uo-u8P"/>
                         <outlet property="mapView" destination="iVs-5W-4Pa" id="grp-LC-mXp"/>
                     </connections>
                 </viewController>
@@ -461,6 +477,7 @@
         <image name="emtyStar" width="19" height="19"/>
         <image name="filledStar" width="19" height="19"/>
         <image name="icons8-карта-сокровищ-100" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="icons8-навигация-80" width="50" height="50"/>
         <image name="icons8-сортировка-по-убыванию-72" width="25" height="25"/>
         <image name="icons8-удалить-100" width="33.333332061767578" height="33.333332061767578"/>
         <image name="Фон" width="626" height="626"/>

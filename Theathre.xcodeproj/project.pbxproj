@@ -90,6 +90,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E47A06CC255C26C70012D4F0 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E6BE74A62558549F00510B58 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		E628779B2546908D008029D0 = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +122,7 @@
 				E62877A72546908E008029D0 /* AppDelegate.swift */,
 				E62877A92546908E008029D0 /* SceneDelegate.swift */,
 				E62877AD2546908E008029D0 /* Main.storyboard */,
-				E6BE74A62558549F00510B58 /* MapViewController.swift */,
+				E47A06CC255C26C70012D4F0 /* Map */,
 				E6BB39312556ABCE006E6800 /* RatingControll.swift */,
 				E679EDB7254D5D170083BB85 /* Model */,
 				E679EDB2254D5CAB0083BB85 /* Add New Theathre */,

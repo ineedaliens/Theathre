@@ -14,12 +14,13 @@ class MapViewController: UIViewController {
     
     // MARK: - OUTLETS
     @IBOutlet weak var mapView: MKMapView!
-    
+    @IBOutlet weak var centerViewUserLocationButton: UIButton!
     
     // MARK: - VAR
     var theathre = Theathre()
     let annotationIdentifier  = "annotationIdentifier"
     let locationManager = CLLocationManager()
+    let regionInMetters = 10_00.00
     
     
     // MARK: - METHOD VIEW DID LOAD
@@ -72,12 +73,9 @@ class MapViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            let ac = UIAlertController(title: "Ошибка", message: "Геолокация выключина", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "ОК", style: .default, handler: nil)
-            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-            ac.addAction(okAction)
-            ac.addAction(cancelAction)
-            self.present(ac, animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showAlert(title: "Определение местоположения отключено", message: "Для того чтоб включить определение геопозиции перейдите: Настройки -> Конфедециальность-> Местоположение")
+            }
         }
     }
     
@@ -95,20 +93,37 @@ class MapViewController: UIViewController {
         case .authorizedAlways: break
         case .authorizedWhenInUse: mapView.showsUserLocation = true
             break
-        case .denied: let ac = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-            ac.addAction(ok)
-            self.present(ac, animated: true, completion: nil)
+        case .denied:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.showAlert(title: "Определение местоположения отключено", message: "Для того чтоб включить геопозицию перейдите: Настройки -> Theathre -> Местоположение")
+        }
             break
         case .notDetermined: locationManager.requestWhenInUseAuthorization()
             break
-        case .restricted: let ac = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "", style: .default, handler: nil)
-            ac.addAction(ok)
-            self.present(ac, animated: true, completion: nil)
+        case .restricted:
+            break
         @unknown default:
             print("New case is available")
         }
+    }
+    
+    
+    // MARK: - PRIVATE METHOD SHOW ALERT
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+
+    
+    // MARK: - METHOD CENTER VIEW USER LOCATION
+    @IBAction func centerViewUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location, latitudinalMeters:     regionInMetters, longitudinalMeters: regionInMetters)
+            mapView.setRegion(region, animated: true)
+        }
+        
     }
     
 }
