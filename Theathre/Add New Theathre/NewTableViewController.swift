@@ -85,14 +85,15 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     
     // MARK: - METHOD PREPARE FOR SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "showMap" {
-            return
+      
+        guard let identifier = segue.identifier, let mapVC = segue.destination as? MapViewController else { return }
+        mapVC.incomeSegueIdentifier = identifier
+        if identifier == "showMap" {
+            mapVC.theathre.name = textFields[0].text!
+            mapVC.theathre.location = textFields[1].text
+            mapVC.theathre.type = textFields[2].text
+            mapVC.theathre.imageData = imagesView.image?.pngData()
         }
-        let mapVC = segue.destination as! MapViewController
-        mapVC.theathre.name = textFields[0].text!
-        mapVC.theathre.location = textFields[1].text
-        mapVC.theathre.type = textFields[2].text
-        mapVC.theathre.imageData = imagesView.image?.pngData()
     }
     
     
