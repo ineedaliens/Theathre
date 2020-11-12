@@ -9,6 +9,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol MapViewControllerDelegate {
+    func getAddress (_ address: String?)
+}
+ 
 class MapViewController: UIViewController {
 
     
@@ -16,11 +20,13 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var centerViewUserLocationButton: UIButton!
     @IBOutlet weak var mapPinImage: UIImageView!
-    @IBOutlet weak var currentAdressLabel: UILabel!
+    @IBOutlet weak var currentAddressLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     
     // MARK: - VAR
+    var mapViewControllerDelegate: MapViewControllerDelegate?
     var theathre = Theathre()
+    
     let annotationIdentifier  = "annotationIdentifier"
     let locationManager = CLLocationManager()
     let regionInMetters = 10_00.00
@@ -30,7 +36,7 @@ class MapViewController: UIViewController {
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentAdressLabel.text = ""
+        currentAddressLabel.text = ""
         setupMapView()
         mapView.delegate = self
         checkLocationServices()
@@ -97,7 +103,7 @@ class MapViewController: UIViewController {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways: break
         case .authorizedWhenInUse: mapView.showsUserLocation = true
-            if incomeSegueIdentifier == "getAdress" {
+            if incomeSegueIdentifier == "getAddress" {
                 showUserLocation()
             }
             break
@@ -156,7 +162,7 @@ class MapViewController: UIViewController {
         if incomeSegueIdentifier == "showMap" {
             setupPlaceMark()
             mapPinImage.isHidden = true
-            currentAdressLabel.isHidden = true
+            currentAddressLabel.isHidden = true
             doneButton.isHidden = true
         }
     }
@@ -164,7 +170,8 @@ class MapViewController: UIViewController {
     
     // MARK: - PRIVATE METHOD DONE BUTTON PRESSED
     @IBAction func doneButtonPressed() {
-        
+        mapViewControllerDelegate?.getAddress(currentAddressLabel.text)
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -214,11 +221,11 @@ extension MapViewController: MKMapViewDelegate {
             
             DispatchQueue.main.async {
                 if streetName != nil && buildNumber != nil {
-                    self.currentAdressLabel.text = ("\(streetName!), \(buildNumber!)")
+                    self.currentAddressLabel.text = ("\(streetName!), \(buildNumber!)")
                 } else if streetName != nil {
-                    self.currentAdressLabel.text = "\(streetName!)"
+                    self.currentAddressLabel.text = "\(streetName!)"
                 } else {
-                    self.currentAdressLabel.text = ""
+                    self.currentAddressLabel.text = ""
                 }
                
             }

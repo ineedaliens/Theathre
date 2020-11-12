@@ -88,6 +88,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
       
         guard let identifier = segue.identifier, let mapVC = segue.destination as? MapViewController else { return }
         mapVC.incomeSegueIdentifier = identifier
+        mapVC.mapViewControllerDelegate = self
         if identifier == "showMap" {
             mapVC.theathre.name = textFields[0].text!
             mapVC.theathre.location = textFields[1].text
@@ -194,3 +195,12 @@ extension NewTableViewController: UITextFieldDelegate {
     
 }
 
+
+// MARK: - EXTENSION NEW TABLE VIEW CONTROLLER
+extension NewTableViewController: MapViewControllerDelegate {
+    func getAddress(_ address: String?) {
+        textFields[1].text = address
+    }
+    
+    
+}

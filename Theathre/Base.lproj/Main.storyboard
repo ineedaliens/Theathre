@@ -124,7 +124,7 @@
                                                     </constraints>
                                                     <state key="normal" image="icons8-навигация-80"/>
                                                     <connections>
-                                                        <segue destination="4As-Ts-V45" kind="presentation" identifier="getAdress" id="Adw-lN-Al7"/>
+                                                        <segue destination="4As-Ts-V45" kind="presentation" identifier="getAddress" id="Adw-lN-Al7"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -315,7 +315,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5Gp-EA-ohQ"/>
                     <connections>
                         <outlet property="centerViewUserLocationButton" destination="coz-V0-8Mp" id="YNA-uo-u8P"/>
-                        <outlet property="currentAdressLabel" destination="uxw-QL-i9e" id="3ad-Y2-e6s"/>
+                        <outlet property="currentAddressLabel" destination="uxw-QL-i9e" id="3ad-Y2-e6s"/>
                         <outlet property="doneButton" destination="rMO-BU-Rlj" id="cNg-tv-leR"/>
                         <outlet property="mapPinImage" destination="8Ea-I4-1di" id="bnj-oo-qYu"/>
                         <outlet property="mapView" destination="iVs-5W-4Pa" id="grp-LC-mXp"/>
