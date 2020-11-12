@@ -15,18 +15,22 @@ class MapViewController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var centerViewUserLocationButton: UIButton!
+    @IBOutlet weak var mapPinImage: UIImageView!
+    @IBOutlet weak var currentAdressLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     
     // MARK: - VAR
     var theathre = Theathre()
     let annotationIdentifier  = "annotationIdentifier"
     let locationManager = CLLocationManager()
     let regionInMetters = 10_00.00
+    var incomeSegueIdentifier = ""
     
     
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPlaceMark()
+        setupMapView()
         mapView.delegate = self
         checkLocationServices()
     }
@@ -92,6 +96,9 @@ class MapViewController: UIViewController {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways: break
         case .authorizedWhenInUse: mapView.showsUserLocation = true
+            if incomeSegueIdentifier == "getAdress" {
+                showUserLocation()
+            }
             break
         case .denied:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -117,14 +124,38 @@ class MapViewController: UIViewController {
     }
 
     
-    // MARK: - METHOD CENTER VIEW USER LOCATION
-    @IBAction func centerViewUserLocation() {
+    // MARK: - PRIVATE METHOD SHOW USER LOCATION
+    private func showUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion(center: location, latitudinalMeters:     regionInMetters, longitudinalMeters: regionInMetters)
             mapView.setRegion(region, animated: true)
         }
+    }
+    
+    
+    
+    // MARK: - METHOD CENTER VIEW USER LOCATION
+    @IBAction func centerViewUserLocation() {
+     showUserLocation()
+    }
+    
+    
+    // MARK: - PRIVATE METHOD SETUP MAP VIEW
+    private func setupMapView() {
+        if incomeSegueIdentifier == "showMap" {
+            setupPlaceMark()
+            mapPinImage.isHidden = true
+            currentAdressLabel.isHidden = true
+            doneButton.isHidden = true
+        }
+    }
+    
+    
+    // MARK: - PRIVATE METHOD DONE BUTTON PRESSED
+    @IBAction func doneButtonPressed() {
         
     }
+    
     
 }
 
