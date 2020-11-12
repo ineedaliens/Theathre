@@ -30,6 +30,7 @@ class MapViewController: UIViewController {
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentAdressLabel.text = ""
         setupMapView()
         mapView.delegate = self
         checkLocationServices()
@@ -124,6 +125,16 @@ class MapViewController: UIViewController {
     }
 
     
+    
+    // MARK: - PRIVATE METHOD GET CENTER LOCATION
+    private func getCenterLocation(for mapView: MKMapView) -> CLLocation {
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    
     // MARK: - PRIVATE METHOD SHOW USER LOCATION
     private func showUserLocation() {
         if let location = locationManager.location?.coordinate {
@@ -185,6 +196,35 @@ extension MapViewController: MKMapViewDelegate {
  
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = getCenterLocation(for: mapView)
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(center, completionHandler: { (placemarks, error ) in
+            if let error = error {
+                print(error)
+                return
+            }
+            guard let placemarks = placemarks else { return }
+            let placemark = placemarks.first
+            let streetName =  placemark?.thoroughfare
+            let buildNumber = placemark?.subThoroughfare
+            
+            DispatchQueue.main.async {
+                if streetName != nil && buildNumber != nil {
+                    self.currentAdressLabel.text = ("\(streetName!), \(buildNumber!)")
+                } else if streetName != nil {
+                    self.currentAdressLabel.text = "\(streetName!)"
+                } else {
+                    self.currentAdressLabel.text = ""
+                }
+               
+            }
+            
+
+        })
     }
 }
 
