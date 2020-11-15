@@ -29,7 +29,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     // MARK: - METHOD VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()        
-        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
+//        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
         tableView.separatorColor = .black
