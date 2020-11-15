@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var goButton: UIButton!
     
     
-    // MARK: - VAR
+    // MARK: - VAR, LET
     let mapManagers = mapManager()
     var mapViewControllerDelegate: MapViewControllerDelegate?
     var theathre = Theathre()
@@ -59,14 +59,14 @@ class MapViewController: UIViewController {
     }
     
         
-    // MARK: - PRIVATE METHOD DONE BUTTON PRESSED
+    // MARK: - METHOD DONE BUTTON PRESSED
     @IBAction func doneButtonPressed() {
         mapViewControllerDelegate?.getAddress(currentAddressLabel.text)
         dismiss(animated: true, completion: nil)
     }
     
     
-    // MARK: - PRIVATE METHOD GO BUTTON PRESSED
+    // MARK: - METHOD GO BUTTON PRESSED
     @IBAction func goButtonPressed() {
         mapManagers.getDirections(for: mapView, previousLocation: { (location) in
             self.previousLocation = location
@@ -90,7 +90,7 @@ class MapViewController: UIViewController {
     }
     
     
-    // MARK: - METHOD SETUP NAVIGATION BAR
+    // MARK: - PRIVATE METHOD SETUP NAVIGATION BAR
     private func setingUpNavigationBar() {
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

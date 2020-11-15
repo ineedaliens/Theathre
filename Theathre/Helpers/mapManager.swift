@@ -11,14 +11,14 @@ import MapKit
 class mapManager {
     
     
-    // MARK: - CONSTANT
+    // MARK: - VAR, LET
     let locationManager = CLLocationManager()
     private var theathreCoordinate: CLLocationCoordinate2D?
     private let regionInMetters = 1000.00
     private var directionsArray: [MKDirections] = []
     
     
-    // MARK: - SETUP PLACE MARK
+    // MARK: - METHOD SETUP PLACE MARK
     func setupPlaceMark(theathre: Theathre, mapView: MKMapView) {
         guard let location = theathre.location else { return }
         let geocoder = CLGeocoder()
@@ -82,7 +82,7 @@ class mapManager {
     }
     
     
-    // MARK: - PRIVATE METHOD SHOW USER LOCATION
+    // MARK: - METHOD SHOW USER LOCATION
     func showUserLocation(mapView: MKMapView) {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMetters, longitudinalMeters: regionInMetters)
@@ -91,7 +91,7 @@ class mapManager {
     }
     
     
-    // MARK: - PRIVATE METHOD GET DIRECTIONS
+    // MARK: - METHOD GET DIRECTIONS
     func getDirections(for mapView: MKMapView, previousLocation: (CLLocation) -> ()) {
         
         
@@ -137,7 +137,7 @@ class mapManager {
     }
     
     
-    // MARK: - PRIVATE METHOD CREATE DIRECTION REQUEST
+    // MARK: - METHOD CREATE DIRECTION REQUEST
     func createDirectionRequest(from coordinate: CLLocationCoordinate2D) -> MKDirections.Request? {
         
         guard let destinationCoordinate = theathreCoordinate else { return nil }
@@ -154,7 +154,7 @@ class mapManager {
     }
     
     
-    // MARK: - PRIVATE METHOD START TRACKING USER LOCATION
+    // MARK: - METHOD START TRACKING USER LOCATION
     func startTrackingUserLocation(for mapView: MKMapView, and location: CLLocation?, closure: (_ currentLocation: CLLocation) -> ()) {
         guard let location = location else { return }
         let center = getCenterLocation(for: mapView)
@@ -164,7 +164,7 @@ class mapManager {
     }
     
     
-    // MARK: - PRIVATE METHOD RESET MAP VIEW
+    // MARK: - METHOD RESET MAP VIEW
     func resetMapView(withNew directions: MKDirections, mapView: MKMapView) {
         mapView.removeOverlays(mapView.overlays)
         directionsArray.append(directions)
@@ -173,7 +173,7 @@ class mapManager {
     }
 
     
-    // MARK: - PRIVATE METHOD GET CENTER LOCATION
+    // MARK: - METHOD GET CENTER LOCATION
     func getCenterLocation(for mapView: MKMapView) -> CLLocation {
         let latitude = mapView.centerCoordinate.latitude
         let longitude = mapView.centerCoordinate.longitude
@@ -182,7 +182,7 @@ class mapManager {
     }
     
     
-    // MARK: - PRIVATE METHOD SHOW ALERT
+    // MARK: - METHOD SHOW ALERT
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
