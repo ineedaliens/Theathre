@@ -34,8 +34,8 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         theathres = realm.objects(Theathre.self)
-        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
-        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6666666667, blue: 0.7450980392, alpha: 1)
+//        self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
+//        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6666666667, blue: 0.7450980392, alpha: 1)
         tableView.estimatedRowHeight = 85
         
         // MARK: - SETUP SEARCH CONTROLLER
@@ -85,7 +85,7 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.cosmosView.rating = theathres.rating
         
         
-        cell.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
+//        cell.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
         
         return cell
     }
