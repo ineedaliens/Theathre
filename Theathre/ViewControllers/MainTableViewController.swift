@@ -18,15 +18,6 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     // MARK: - VAR,LET AND ARRAY
-    //    let theathreNames = ["","","",""]
-    //    let type = ["","","","",""]
-    //    let location = ["","","","",""]
-    //    let images = ["","","","",""]
-    //    var theathre = [Theathre(name: "Екатеринбургский государственный академический театр оперы и балета", type: "Театр оперы и балета", location: "просп. Ленина, 46А, Екатеринбург, Свердловская обл.", theathreImages: "Екатеринбургский государственный академический театр оперы и балета"),
-    //    Theathre(name: "Екатеринбургский музыкально-драматический театр", type: "Музыкально-драматический театр", location: "просп. Ленина, 48 А, Екатеринбург, Свердловская обл.", theathreImages: "Екатеринбургский музыкально-драматический театр Сцена"),
-    //    Theathre(name: "Коляда-Театр", type: "Частный театр", location: "просп. Ленина, 97, Екатеринбург, Свердловская обл.", theathreImages: "Коляда-Театр"),
-    //    Theathre(name: "Волхонка", type: "Драматический театр", location: "ул. Малышева, 21/1, Екатеринбург, Свердловская обл.", theathreImages: "Волхонка"),
-    //    Theathre(name: "Камерный Театр Объединенного Музея Писателей Урала", type: "Камерный театр", location: "ул. Пролетарская, 18, Екатеринбург, Свердловская обл.", theathreImages: "Камерный Театр Объединенного Музея Писателей Урала")]
     private var theathres: Results<Theathre>!
     private var ascendingSorting = true
     private let searchController = UISearchController(searchResultsController: nil)
@@ -44,7 +35,7 @@ class MainTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         theathres = realm.objects(Theathre.self)
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
-        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6672332883, blue: 0.7453075051, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.6666666667, blue: 0.7450980392, alpha: 1)
         tableView.estimatedRowHeight = 85
         
         // MARK: - SETUP SEARCH CONTROLLER

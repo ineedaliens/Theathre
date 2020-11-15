@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3EF80D34254C907800133465 /* NewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF80D33254C907800133465 /* NewTableViewController.swift */; };
+		E4AC375725613ADC0059F2AB /* mapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC375625613ADC0059F2AB /* mapManager.swift */; };
 		E62877A82546908E008029D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62877A72546908E008029D0 /* AppDelegate.swift */; };
 		E62877AA2546908E008029D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62877A92546908E008029D0 /* SceneDelegate.swift */; };
 		E62877AF2546908E008029D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E62877AD2546908E008029D0 /* Main.storyboard */; };
@@ -41,6 +42,9 @@
 		3EF80D33254C907800133465 /* NewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewController.swift; sourceTree = "<group>"; };
 		45D09A08600E784E9B328C61 /* Pods-Theathre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theathre.release.xcconfig"; path = "Target Support Files/Pods-Theathre/Pods-Theathre.release.xcconfig"; sourceTree = "<group>"; };
 		7DFFAC97B532C0F0DB579D2F /* Pods-Theathre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theathre.debug.xcconfig"; path = "Target Support Files/Pods-Theathre/Pods-Theathre.debug.xcconfig"; sourceTree = "<group>"; };
+		E4AC375625613ADC0059F2AB /* mapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapManager.swift; sourceTree = "<group>"; };
+		E4AC375A25614DC30059F2AB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		E4AC375B25614DC40059F2AB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E62877A42546908E008029D0 /* Theathre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theathre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62877A72546908E008029D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E62877A92546908E008029D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,12 +94,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E47A06CC255C26C70012D4F0 /* Map */ = {
+		E47A06CC255C26C70012D4F0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E6BE74A62558549F00510B58 /* MapViewController.swift */,
+				E6DA4D10254EAF2100F306C3 /* StorageManager.swift */,
+				E4AC375625613ADC0059F2AB /* mapManager.swift */,
+				E6BB39312556ABCE006E6800 /* RatingControll.swift */,
 			);
-			path = Map;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E4AC375825614C040059F2AB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E62877A92546908E008029D0 /* SceneDelegate.swift */,
+				E62877B52546908F008029D0 /* Info.plist */,
+				E62877B02546908F008029D0 /* Assets.xcassets */,
+				E62877A72546908E008029D0 /* AppDelegate.swift */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		E4AC375925614C220059F2AB /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E62877AD2546908E008029D0 /* Main.storyboard */,
+				E62877B22546908F008029D0 /* LaunchScreen.storyboard */,
+			);
+			path = IBuilder;
 			sourceTree = "<group>";
 		};
 		E628779B2546908D008029D0 = {
@@ -119,45 +145,32 @@
 		E62877A62546908E008029D0 /* Theathre */ = {
 			isa = PBXGroup;
 			children = (
-				E62877A72546908E008029D0 /* AppDelegate.swift */,
-				E62877A92546908E008029D0 /* SceneDelegate.swift */,
-				E62877AD2546908E008029D0 /* Main.storyboard */,
-				E47A06CC255C26C70012D4F0 /* Map */,
-				E6BB39312556ABCE006E6800 /* RatingControll.swift */,
-				E679EDB7254D5D170083BB85 /* Model */,
-				E679EDB2254D5CAB0083BB85 /* Add New Theathre */,
-				E679EDB0254D5C950083BB85 /* Main */,
-				E62877B02546908F008029D0 /* Assets.xcassets */,
-				E62877B22546908F008029D0 /* LaunchScreen.storyboard */,
-				E62877B52546908F008029D0 /* Info.plist */,
+				E679EDB0254D5C950083BB85 /* ViewControllers */,
+				E47A06CC255C26C70012D4F0 /* Helpers */,
+				E679EDB7254D5D170083BB85 /* Models */,
+				E4AC375825614C040059F2AB /* Support Files */,
+				E4AC375925614C220059F2AB /* IBuilder */,
 			);
 			path = Theathre;
 			sourceTree = "<group>";
 		};
-		E679EDB0254D5C950083BB85 /* Main */ = {
+		E679EDB0254D5C950083BB85 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				E6CF02B62548705E0033E44A /* MainTableViewCell.swift */,
 				E62877BF25469EAF008029D0 /* MainTableViewController.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		E679EDB2254D5CAB0083BB85 /* Add New Theathre */ = {
-			isa = PBXGroup;
-			children = (
 				3EF80D33254C907800133465 /* NewTableViewController.swift */,
+				E6BE74A62558549F00510B58 /* MapViewController.swift */,
 			);
-			path = "Add New Theathre";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E679EDB7254D5D170083BB85 /* Model */ = {
+		E679EDB7254D5D170083BB85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E679EDB4254D5CEA0083BB85 /* Theathre.swift */,
-				E6DA4D10254EAF2100F306C3 /* StorageManager.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +217,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = E628779B2546908D008029D0;
 			productRefGroup = E62877A52546908E008029D0 /* Products */;
@@ -281,6 +295,7 @@
 				E679EDB5254D5CEA0083BB85 /* Theathre.swift in Sources */,
 				E6BE74A72558549F00510B58 /* MapViewController.swift in Sources */,
 				E6DA4D11254EAF2200F306C3 /* StorageManager.swift in Sources */,
+				E4AC375725613ADC0059F2AB /* mapManager.swift in Sources */,
 				E62877C025469EAF008029D0 /* MainTableViewController.swift in Sources */,
 				E6CF02B72548705E0033E44A /* MainTableViewCell.swift in Sources */,
 				E62877AA2546908E008029D0 /* SceneDelegate.swift in Sources */,
@@ -294,6 +309,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E62877AE2546908E008029D0 /* Base */,
+				E4AC375A25614DC30059F2AB /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -302,6 +318,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E62877B32546908F008029D0 /* Base */,
+				E4AC375B25614DC40059F2AB /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -313,6 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -374,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -433,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZFHJR9YRZ;
-				INFOPLIST_FILE = Theathre/Info.plist;
+				INFOPLIST_FILE = "Theathre/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZFHJR9YRZ;
-				INFOPLIST_FILE = Theathre/Info.plist;
+				INFOPLIST_FILE = "Theathre/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
