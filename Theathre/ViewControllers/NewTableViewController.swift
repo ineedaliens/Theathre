@@ -15,7 +15,7 @@ class NewTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var imagesView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet var textFields: [UITextField]!
-    @IBOutlet weak var ratingControll: RatingControll!
+//    @IBOutlet weak var ratingControll: RatingControll!
     @IBOutlet weak var cosmosView: CosmosView!
     @IBOutlet weak var mapButton: UIButton!
     

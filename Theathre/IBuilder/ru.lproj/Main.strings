@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "4ot-es-s9r"; */
+"4ot-es-s9r.text" = "Location";
+
+/* Class = "UINavigationItem"; title = "ТЕАТРЫ"; ObjectID = "8pB-RJ-UNj"; */
+"8pB-RJ-UNj.title" = "ТЕАТРЫ";
+
+/* Class = "UITextField"; placeholder = "Type Theathre"; ObjectID = "8yh-O0-iWK"; */
+"8yh-O0-iWK.placeholder" = "Type Theathre";
+
+/* Class = "UINavigationItem"; title = "НОВЫЙ ТЕАТР"; ObjectID = "9Xo-DG-h3n"; */
+"9Xo-DG-h3n.title" = "НОВЫЙ ТЕАТР";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "G0z-WN-tBv"; */
+"G0z-WN-tBv.text" = "Name";
+
+/* Class = "UITextField"; placeholder = "Location Theathre"; ObjectID = "GHh-mo-C9M"; */
+"GHh-mo-C9M.placeholder" = "Location Theathre";
+
+/* Class = "UISegmentedControl"; VWQ-ct-Suw.segmentTitles[0] = "Дата"; ObjectID = "VWQ-ct-Suw"; */
+"VWQ-ct-Suw.segmentTitles[0]" = "Дата";
+
+/* Class = "UISegmentedControl"; VWQ-ct-Suw.segmentTitles[1] = "Имя"; ObjectID = "VWQ-ct-Suw"; */
+"VWQ-ct-Suw.segmentTitles[1]" = "Имя";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "Wsg-Ub-9Bb"; */
+"Wsg-Ub-9Bb.text" = "Type";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "XTI-Lm-NS5"; */
+"XTI-Lm-NS5.title" = "Item";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "bui-0H-HlH"; */
+"bui-0H-HlH.text" = "Location";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "jbe-M3-GcE"; */
+"jbe-M3-GcE.text" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Готово"; ObjectID = "rMO-BU-Rlj"; */
+"rMO-BU-Rlj.normalTitle" = "Готово";
+
+/* Class = "UILabel"; text = "Текущий адрес"; ObjectID = "uxw-QL-i9e"; */
+"uxw-QL-i9e.text" = "Текущий адрес";
+
+/* Class = "UITextField"; placeholder = "Name Theathre"; ObjectID = "wUy-CM-ssp"; */
+"wUy-CM-ssp.placeholder" = "Name Theathre";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "yUI-fR-BN9"; */
+"yUI-fR-BN9.text" = "Type";
